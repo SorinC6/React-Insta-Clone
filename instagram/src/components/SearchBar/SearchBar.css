@@ -1,0 +1,43 @@
+
+
+.search-bar{
+   display:flex;
+   justify-content: space-between;
+   border:1px solid blue;
+   align-items: center;
+   font-size: 20px;
+   height: 50px;
+}
+
+.insta-logo{
+   display: flex;
+   align-items:center;
+   justify-content: flex-start;
+}
+
+.insta-logo i{
+   font-size: 34px;
+   border-right: 1px solid grey;
+   padding-right: 20px;
+   margin-left:20px;
+}
+
+.insta-logo img{
+   width:90px;
+   margin-left: 10px;
+}
+
+.leftside-icons{
+   display: flex;
+   justify-content: flex-end;
+}
+
+.leftside-icons i{
+   margin:0 20px;
+}
+
+.search-input input{
+   width:200px;
+   height: 20px;
+   font-size: 16px;
+}

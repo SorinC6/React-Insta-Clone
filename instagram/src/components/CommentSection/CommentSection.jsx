@@ -6,8 +6,8 @@ const CommentSection = (props) => {
 	return (
 		<div>
          <div >
-            <p>Heart Sign</p>
-            <p>Comment Sign</p>
+         <i class="far fa-heart"/>
+         <i class="far fa-comment"/>
          </div>
 
          <div>
