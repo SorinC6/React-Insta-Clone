@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import CommentSection from '../CommentSection/CommentSection';
 
 const PostContainer = (props) => {
-	console.log('Post Container props: ', props);
+	//onsole.log('Post Container props: ', props);
 	return (
 		<div className="post">
 			<div className="post-header">
