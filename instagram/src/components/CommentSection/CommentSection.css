@@ -1,0 +1,25 @@
+.comment-section{
+   width:95%;
+   margin:0 auto;
+  
+}
+
+.comment-section input {
+   width:100%;
+   border:0;
+   padding:15px 0;
+   font-size: 14px;
+}
+
+.action-buttons i{
+   margin-top:10px;
+   margin-right: 10px;
+   font-size: 25px;
+}
+
+.add-container{
+   display:flex;
+   align-items: center;
+   height: 60px;
+   border-top:1px solid grey;
+}

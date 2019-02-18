@@ -11,7 +11,7 @@ const SearchBar = (props) => {
 			</div>
 
 			<div className="search-input">
-				<input placeholder="Search" type="text" />
+				<input placeholder="&#128269; Search" type="text" />
 			</div>
 
 			<div className="leftside-icons">
