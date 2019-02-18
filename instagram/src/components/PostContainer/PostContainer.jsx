@@ -12,7 +12,7 @@ const PostContainer = (props) => {
             <p>{props.post.username}</p>
          </div>
 
-         <div>
+         <div className='post-img'>
             <img src={props.post.imageUrl} alt='post-img'/>
          </div>
          

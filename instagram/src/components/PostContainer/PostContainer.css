@@ -1,0 +1,30 @@
+.post {
+	width: 50%;
+	margin: 15px auto;
+	border: 1px solid grey;
+	padding: 5px;
+}
+
+.post-header {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	border: 1px solid green;
+}
+
+.post-header img {
+   border-radius:50%;
+   height: 40px;
+   margin:8px;
+}
+
+.post-header p {
+   font-weight: bold;
+   font-size: italic;
+   font-size:16px;
+}
+
+.post-img {
+   max-width: 100%;
+   height: auto;
+}
