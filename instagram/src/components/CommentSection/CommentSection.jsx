@@ -51,6 +51,7 @@ class CommentSection extends Component {
       this.setState({
          comment: '',
       })
+      event.target.firstChild.value="";
 	};
 
 	render() {

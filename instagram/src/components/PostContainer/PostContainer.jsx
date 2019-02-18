@@ -8,14 +8,6 @@ const PostContainer = (props) => {
 	//onsole.log('Post Container props: ', props);
 	return (
 		<div className="post">
-			{/* <div className="post-header">
-				<img src={props.post.thumbnailUrl} alt="user-img" />
-				<p>{props.post.username}</p>
-			</div>
-
-			<div className="post-img">
-				<img src={props.post.imageUrl} alt="post-img" />
-         </div> */}
 
          <Post 
             thumbnailUrl={props.post.thumbnailUrl} 
