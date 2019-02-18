@@ -6,7 +6,7 @@ const SearchBar = (props) => {
 	return (
 		<div className="search-bar">
 			<div className="insta-logo">
-				<i class="fab fa-instagram" />
+				<i className="fab fa-instagram" />
 				<img src={Logo} alt="insta-logo" />
 			</div>
 
@@ -15,9 +15,9 @@ const SearchBar = (props) => {
 			</div>
 
 			<div className="leftside-icons">
-				<i class="far fa-compass" />
-				<i class="far fa-heart" />
-				<i class="far fa-user" />
+				<i className="far fa-compass" />
+				<i className="far fa-heart" />
+				<i className="far fa-user" />
 			</div>
 		</div>
 	);
