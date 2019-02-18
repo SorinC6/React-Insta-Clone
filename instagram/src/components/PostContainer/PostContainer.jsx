@@ -2,19 +2,26 @@ import React from 'react';
 import './PostContainer.css';
 import PropTypes from 'prop-types';
 import CommentSection from '../CommentSection/CommentSection';
+import Post from './Post';
 
 const PostContainer = (props) => {
 	//onsole.log('Post Container props: ', props);
 	return (
 		<div className="post">
-			<div className="post-header">
+			{/* <div className="post-header">
 				<img src={props.post.thumbnailUrl} alt="user-img" />
 				<p>{props.post.username}</p>
 			</div>
 
 			<div className="post-img">
 				<img src={props.post.imageUrl} alt="post-img" />
-			</div>
+         </div> */}
+
+         <Post 
+            thumbnailUrl={props.post.thumbnailUrl} 
+            username={props.post.username}
+            imageUrl={props.post.imageUrl}
+          />
 
 			<CommentSection comments={props.post.comments} likes={props.post.likes} timestamp={props.post.timestamp} />
 		</div>
