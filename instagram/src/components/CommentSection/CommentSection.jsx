@@ -63,7 +63,7 @@ class CommentSection extends Component {
 				</div>
 
 				<div>
-					<p>{this.props.likes} likes</p>
+					<p className='like-btn'>{this.props.likes} likes</p>
 				</div>
 
 				{this.state.commentList.map((comment, i) => {
