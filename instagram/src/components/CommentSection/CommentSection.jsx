@@ -1,7 +1,7 @@
 import React from 'react';
 
 const CommentSection = (props) => {
-	console.log(props);
+	console.log('Comment Section props',props);
 
 	return (
 		<div>
