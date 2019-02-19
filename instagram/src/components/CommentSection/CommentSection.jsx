@@ -51,11 +51,14 @@ class CommentSection extends Component {
          }],
          text: '',
       });
+      window.localStorage.setItem('comments',JSON.stringify(this.state.commentList))
       
       this.setState({
          comment: '',
       })
       event.target.firstChild.value="";
+
+      console.log(window.localStorage.getItem('comments'))
 	};
 
 	render() {

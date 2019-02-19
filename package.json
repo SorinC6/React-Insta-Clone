@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "moment": "^2.24.0",
     "prop-types": "^15.7.2"
   }
 }
