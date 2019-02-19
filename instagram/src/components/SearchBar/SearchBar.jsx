@@ -11,7 +11,12 @@ const SearchBar = (props) => {
 			</div>
 
 			<div className="search-input">
-				<input placeholder="&#128269; Search" type="text" />
+            <input 
+               placeholder="&#128269; Search" 
+               type="text"
+               name='search'
+               onChange={props.handleChanges} 
+            />
 			</div>
 
 			<div className="leftside-icons">
