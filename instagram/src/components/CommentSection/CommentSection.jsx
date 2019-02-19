@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import PropType from 'prop-types';
+import moment from 'moment';
 import Comment from './Comment';
 import './CommentSection.css'
+import CommentsHeader from './CommentsHeader';
 
 class CommentSection extends Component {
 	//console.log('Comment Section props',props);
@@ -10,7 +12,9 @@ class CommentSection extends Component {
 		this.state = {
 			commentList: props.comments,
 			comment: ''
-		};
+      };
+      
+      this.time=moment().startOf('hour').fromNow(); 
 
 		console.log(this.state.commentList);
 	}
@@ -57,20 +61,14 @@ class CommentSection extends Component {
 	render() {
 		return (
 			<div className='comment-section'>
-				<div className='action-buttons'>
-					<i className="far fa-heart" />
-					<i className="far fa-comment" />
-				</div>
-
-				<div>
-					<p className='like-btn'>{this.props.likes} likes</p>
-				</div>
+				
+            <CommentsHeader likes={this.props.likes}/>
 
 				{this.state.commentList.map((comment, i) => {
 					return <Comment key={i} username={comment.username} text={comment.text} />;
 				})}
 
-				<p>{this.props.timestamp}</p>
+				<p className='time-container'>{this.props.timestamp}</p>
 				{/* <input placeholder="Add a comment..." /> */}
 
 				<form onSubmit={this.submitContent} className='add-container'>

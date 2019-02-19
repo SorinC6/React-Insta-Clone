@@ -36,5 +36,17 @@
 
 .like-btn {
 	font-weight: bold;
-	font-size: 14px;
+   font-size: 14px;
+  
+}
+
+.time-container {
+   font-size: 12px;
+   padding-top:5px;
+   padding-bottom: 7px;
+   color:rgb(141, 138, 138);
+}
+
+.red {
+   color:red;
 }

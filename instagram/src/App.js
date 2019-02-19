@@ -14,9 +14,13 @@ class App extends Component {
 	}
 
 	componentDidMount() {
-		this.setState({
-			dummyData: DummyData
-		});
+		// this.setState({
+		// 	dummyData: DummyData
+		// }).catch(err=> console.log('Error fa'))
+		console.log('Component did mounth');
+		fetch(DummyData)
+			.then(this.setState({ dummyData: DummyData }))
+			.catch((err) => console.log('error fetching data'));
 	}
 
 	render() {
@@ -25,6 +29,7 @@ class App extends Component {
 				<h1>INSTACLONE</h1>
 
 				<SearchBar />
+
 				{this.state.dummyData.map((post, i) => {
 					return <PostContainer key={i} post={post} />;
 				})}
@@ -34,16 +39,18 @@ class App extends Component {
 }
 
 App.propTypes = {
-   dummyData: PropType.shape({
-      comments: PropType.arrayOf(PropType.shape({
-         username:PropType.string.isRequired,
-         text:PropType.string,
-      })),
-      username:PropType.string,
-      thumbnailURL: PropType.string,
-      imageUrl: PropType.string,
-      likes:PropType.number
-   })
-}
+	dummyData: PropType.shape({
+		comments: PropType.arrayOf(
+			PropType.shape({
+				username: PropType.string.isRequired,
+				text: PropType.string
+			})
+		),
+		username: PropType.string,
+		thumbnailURL: PropType.string,
+		imageUrl: PropType.string,
+		likes: PropType.number
+	})
+};
 
 export default App;

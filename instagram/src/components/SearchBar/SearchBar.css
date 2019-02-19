@@ -34,10 +34,12 @@
 
 .leftside-icons i{
    margin:0 20px;
+   font-size:25px;
 }
 
 .search-input input{
    width:200px;
    height: 20px;
    font-size: 16px;
+   text-align: center;
 }
