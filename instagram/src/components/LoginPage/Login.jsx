@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import './Login.css'
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 class Login extends Component {
 	constructor(props) {
@@ -23,12 +25,15 @@ class Login extends Component {
 
 	render() {
 		return (
-			<div>
-				<form onSubmit={this.loginSubmit}>
-					Username: <input type="text" onChange={this.handleChanges} name="username" />
-               Password: <input type='password' onChange={this.handleChanges} name='password' />
-               <button onSubmit={this.loginSubmit}>Login</button>
-				</form>
+			<div className='form-strap'>
+				<Form onSubmit={this.loginSubmit} >
+            <FormGroup>
+               <Label>Username:</Label> <Input type="text" onChange={this.handleChanges} name="username" />
+               <Label>Password:</Label> <Input type='password' onChange={this.handleChanges} name='password' />
+               <Button color="secondary" size="lg" block onSubmit={this.loginSubmit}>Login</Button>
+            </FormGroup>
+				
+				</Form>
 			</div>
 		);
 	}

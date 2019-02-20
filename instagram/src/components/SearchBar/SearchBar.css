@@ -47,10 +47,17 @@
 
 .logout-container {
    position:absolute;
-   right:0;
+   right:2%;
    top:20%;
+}
+
+@media (max-width:1053px){
+   .logout-container{
+      top:25%;
+   }
 }
 
 .hide {
    display:none;
 }
+
