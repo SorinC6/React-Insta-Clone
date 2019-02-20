@@ -43,3 +43,14 @@
    font-size: 16px;
    text-align: center;
 }
+
+
+.logout-container {
+   position:absolute;
+   right:0;
+   top:20%;
+}
+
+.hide {
+   display:none;
+}

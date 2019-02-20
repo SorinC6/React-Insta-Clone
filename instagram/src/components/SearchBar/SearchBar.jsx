@@ -1,6 +1,7 @@
 import React from 'react';
 import './SearchBar.css';
 import Logo from '../../../src/assets/logo.png';
+import LogoutMenu from './LogoutMenu';
 
 const SearchBar = (props) => {
 	return (
@@ -11,19 +12,16 @@ const SearchBar = (props) => {
 			</div>
 
 			<div className="search-input">
-            <input 
-               placeholder="&#128269; Search" 
-               type="text"
-               name='search'
-               onChange={props.handleChanges} 
-            />
+				<input placeholder="&#128269; Search" type="text" name="search" onChange={props.handleChanges} />
 			</div>
 
 			<div className="leftside-icons">
 				<i className="far fa-compass" />
 				<i className="far fa-heart" />
-				<i className="far fa-user" />
+				<i onClick={props.onToggle} className="far fa-user" />
 			</div>
+
+			<LogoutMenu username={props.username} {...props} />
 		</div>
 	);
 };

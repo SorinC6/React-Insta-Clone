@@ -6,7 +6,6 @@ class Login extends Component {
 		this.state = {
 			username: '',
 			password: '',
-			loggedIn: false
 		};
    }
    
@@ -15,7 +14,7 @@ class Login extends Component {
    }
 
    loginSubmit = e => {
-      e.preventDefault();
+      //e.preventDefault();
       if(this.state.username && this.state.password){
          localStorage.setItem('username',this.state.username);
          localStorage.setItem('password',this.state.password);
@@ -27,8 +26,8 @@ class Login extends Component {
 			<div>
 				<form onSubmit={this.loginSubmit}>
 					Username: <input type="text" onChange={this.handleChanges} name="username" />
-               Password: <input type='text' onChange={this.handleChanges} name='password' />
-               <button onClick={this.props.onLoginSubmit}>Login</button>
+               Password: <input type='password' onChange={this.handleChanges} name='password' />
+               <button onSubmit={this.loginSubmit}>Login</button>
 				</form>
 			</div>
 		);

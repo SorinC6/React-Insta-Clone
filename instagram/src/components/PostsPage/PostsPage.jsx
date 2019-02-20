@@ -13,7 +13,6 @@ class PostsPage extends Component {
 			dummyData: [],
 			filteredData: [],
 			search: '',
-			storage: ''
 		};
 	}
 
@@ -34,7 +33,7 @@ class PostsPage extends Component {
 		});
 		const filtred = this.state.dummyData.filter((post) => {
 			if (post.username.includes(this.state.search)) {
-            localStorage.setItem('search',post)
+            //localStorage.setItem('search',post)
 				return post;
 			} else return null;
 		});
@@ -58,16 +57,19 @@ class PostsPage extends Component {
 		// console.log(event.target.name);
 	};
 
-	message = () => {
-		return <h1>No Data</h1>;
-	};
-
+	// message = () => {
+	// 	return <h1>No Data</h1>;
+   // };
+   
 	render() {
 		return (
 			<div className="App">
 				<h1>INSTACLONE PROJECT</h1>
 
-				<SearchBar handleChanges={this.handleChanges} />
+            <SearchBar 
+               handleChanges={this.handleChanges} 
+               {...this.props}
+            />
 				{this.state.filteredData.length === 0 ? (
 					this.state.dummyData.map((post, i) => {
 						return (
