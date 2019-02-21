@@ -4,6 +4,13 @@ import './PostsPage.css';
 import PropType from 'prop-types';
 import SearchBar from '../SearchBar/SearchBar';
 import PostContainer from '../PostContainer/PostContainer';
+import styled from 'styled-components';
+
+
+const Header = styled.h1`
+   max-width:40%;
+   margin: 20px auto;
+`
 
 
 class PostsPage extends Component {
@@ -41,30 +48,17 @@ class PostsPage extends Component {
 		this.setState({
 			filteredData: filtred
       });
-      console.log('Local Storage',localStorage.search)
-		// this.setState({
-		//    filteredData: [...this.state.filteredData, filtred]
-		// })
-		// this.setState(prevState=>({
-		//    filteredData: prevState.filteredData.concat(filtred)
-		// }))
+      // console.log('Local Storage',localStorage.search)
+		// console.log(this.state.filteredData);
+		// console.log(this.state.filteredData.length);
 
-		console.log(this.state.filteredData);
-		console.log(this.state.filteredData.length);
-		// console.log(filtred)
-		// console.log(filtred.length)
-		// console.log(event.target.value);
-		// console.log(event.target.name);
 	};
 
-	// message = () => {
-	// 	return <h1>No Data</h1>;
-   // };
    
 	render() {
 		return (
-			<div className="App">
-				<h1>INSTACLONE PROJECT</h1>
+			<div>
+				<Header>INSTACLONE PROJECT</Header>
 
             <SearchBar 
                handleChanges={this.handleChanges} 
