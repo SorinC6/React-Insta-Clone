@@ -2,10 +2,27 @@ import React from 'react';
 import './SearchBar.css';
 import Logo from '../../../src/assets/logo.png';
 import LogoutMenu from './LogoutMenu';
+import styled from 'styled-components';
 
+const SearchDiv = styled.div`
+	display: flex;
+	justify-content: space-between;
+	border: 1px solid blue;
+	align-items: center;
+	font-size: 20px;
+	height: 50px;
+`;
+
+const LogoDiv = styled.div`
+display: flex;
+align-items:center;
+justify-content: flex-start;
+`
+
+//console.log(SearchDiv);
 const SearchBar = (props) => {
 	return (
-		<div className="search-bar">
+		<SearchDiv>
 			<div className="insta-logo">
 				<i className="fab fa-instagram" />
 				<img src={Logo} alt="insta-logo" />
@@ -18,11 +35,11 @@ const SearchBar = (props) => {
 			<div className="leftside-icons">
 				<i className="far fa-compass" />
 				<i className="far fa-heart" />
-				<i onClick={props.onToggle} className="far fa-user" />
+				<i className="far fa-user" />
 			</div>
 
 			<LogoutMenu username={props.username} {...props} />
-		</div>
+		</SearchDiv>
 	);
 };
 

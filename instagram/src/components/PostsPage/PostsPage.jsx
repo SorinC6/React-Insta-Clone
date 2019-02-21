@@ -78,7 +78,7 @@ class PostsPage extends Component {
 								<PostContainer key={i} post={post} />
 							</div>
 						);
-					})
+					}) 
 				) : (
 					this.state.filteredData.map((post, i) => {
 						return <PostContainer key={i} post={post} />;

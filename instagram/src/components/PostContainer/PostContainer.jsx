@@ -10,9 +10,7 @@ const PostContainer = (props) => {
 		<div className="post">
 
          <Post 
-            thumbnailUrl={props.post.thumbnailUrl} 
-            username={props.post.username}
-            imageUrl={props.post.imageUrl}
+            {...props.post}
           />
 
 			<CommentSection comments={props.post.comments} likes={props.post.likes} timestamp={props.post.timestamp} />
