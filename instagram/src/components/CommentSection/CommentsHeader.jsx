@@ -1,4 +1,22 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
+
+const Icons = styled.div`
+	i {
+		margin-top: 10px;
+		margin-right: 10px;
+      font-size: 25px;
+	}
+`;
+
+const LikeBtn = styled.p`
+	font-weight: bold;
+	font-size: 14px;
+`;
+
+const RedColor = styled.i`
+   color:red;
+`
 
 class CommentsHeader extends Component {
 	constructor(props) {
@@ -10,34 +28,32 @@ class CommentsHeader extends Component {
 	}
 
 	addLike = (event) => {
-      console.log('like pressed')
+		console.log('like pressed');
 		if (this.state.likeCount === 0) {
-         this.setState(prevState =>({totalLikes: ++prevState.totalLikes}))
-         this.setState(prevState =>({likeCount: ++prevState.likeCount}))
-         event.target.classList.remove('far');
-         event.target.classList.add('fas');
-         event.target.classList.add('red');
+			this.setState((prevState) => ({ totalLikes: ++prevState.totalLikes }));
+			this.setState((prevState) => ({ likeCount: ++prevState.likeCount }));
+			event.target.classList.remove('far');
+			event.target.classList.add('fas');
+			//event.target.classList.add('RedColor');
 		} else if (this.state.likeCount === 1) {
-         this.setState(prevState =>({totalLikes: --prevState.totalLikes}))
-         this.setState(prevState =>({likeCount: --prevState.likeCount}))
-         event.target.classList.remove('fas')
-         event.target.classList.add('far')
-         event.target.classList.remove('red')
+			this.setState((prevState) => ({ totalLikes: --prevState.totalLikes }));
+			this.setState((prevState) => ({ likeCount: --prevState.likeCount }));
+			event.target.classList.remove('fas');
+			event.target.classList.add('far');
+			//event.target.classList.remove('RedColor');
 		}
 	};
 
 	render() {
 		return (
 			<div>
-				<div className="action-buttons">
-					<i className="far fa-heart" onClick={this.addLike}/>
+				<Icons>
+					<RedColor className="far fa-heart" onClick={this.addLike} />
 					<i className="far fa-comment" />
-				</div>
+				</Icons>
 
 				<div>
-					<p className="like-btn">
-						{this.state.totalLikes} likes
-					</p>
+					<LikeBtn>{this.state.totalLikes} likes</LikeBtn>
 				</div>
 			</div>
 		);
