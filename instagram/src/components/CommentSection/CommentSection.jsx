@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import PropType from 'prop-types';
 import moment from 'moment';
 import Comment from './Comment';
@@ -35,71 +35,112 @@ const Time = styled.p`
 	color: rgb(141, 138, 138);
 `;
 
-class CommentSection extends Component {
-	//console.log('Comment Section props',props);
-	constructor(props) {
-		super(props);
-		this.state = {
-			commentList: props.comments,
-			comment: ''
-		};
+const CommentSection = (props) => {
+	const [ commentList, setCommentList ] = useState(props.comments);
+	const [ comment, setComment ] = useState('');
 
-		this.time = moment().startOf('hour').fromNow();
+	// console.log('Comment ', comment);
+	// console.log(commentList);
 
-		console.log(this.state.commentList);
-	}
-	handleChanges = (event) => {
-		this.setState({ [event.target.name]: event.target.value });
+	const handleChanges = (event) => {
+		setComment((event.target.value));
 	};
 
-	submitContent = (event) => {
+	const submitContent = (event) => {
 		event.preventDefault();
 
-		this.setState({
-			commentList: [
-				...this.state.commentList,
-				{
-					username: 'anonymus',
-					text: this.state.comment
-				}
-			],
-			text: ''
-		});
-		window.localStorage.setItem('comments', JSON.stringify(this.state.commentList));
-
-		this.setState({
-			comment: ''
-		});
+		setCommentList(commentList.concat({ username: localStorage.getItem('username'), text: comment }));
 		event.target.firstChild.value = '';
 
 		console.log(window.localStorage.getItem('comments'));
 	};
 
-	render() {
-		return (
-			<CommentDiv>
-				<CommentsHeader likes={this.props.likes} />
+	return (
+		<CommentDiv>
+			<CommentsHeader likes={props.likes} />
 
-				{this.state.commentList.map((comment, i) => {
-					return <Comment key={i} username={comment.username} text={comment.text} />;
-				})}
+			{commentList.map((comment, i) => {
+				return <Comment key={i} username={comment.username} text={comment.text} />;
+			})}
 
-				<Time className="time-container">{this.props.timestamp}</Time>
-				{/* <input placeholder="Add a comment..." /> */}
+			<Time>{props.timestamp}</Time>
 
-				<Form onSubmit={this.submitContent}>
-					<input
-						onChange={this.handleChanges}
-						onSubmit={this.submitContent}
-						name="comment"
-						placeholder="add a comment..."
-					/>
-					<i className="fas fa-ellipsis-h" />
-				</Form>
-			</CommentDiv>
-		);
-	}
-}
+			<Form onSubmit={submitContent}>
+				<input
+					onChange={handleChanges}
+					onSubmit={submitContent}
+					name="comment"
+					placeholder="add a comment..."
+				/>
+				<i className="fas fa-ellipsis-h" />
+			</Form>
+		</CommentDiv>
+	);
+};
+
+// class CommentSection extends Component {
+// 	//console.log('Comment Section props',props);
+// 	constructor(props) {
+// 		super(props);
+// 		this.state = {
+// 			commentList: props.comments,
+// 			comment: ''
+// 		};
+
+// 		this.time = moment().startOf('hour').fromNow();
+// 		//console.log(this.state.commentList);
+// 	}
+// handleChanges = (event) => {
+// 	this.setState({ [event.target.name]: event.target.value });
+// };
+
+// submitContent = (event) => {
+// 	event.preventDefault();
+
+// 	this.setState({
+// 		commentList: [
+// 			...this.state.commentList,
+// 			{
+// 				username: 'anonymus',
+// 				text: this.state.comment
+// 			}
+// 		],
+// 		text: ''
+// 	});
+// 	window.localStorage.setItem('comments', JSON.stringify(this.state.commentList));
+
+// 	this.setState({
+// 		comment: ''
+// 	});
+// 	event.target.firstChild.value = '';
+
+// 	console.log(window.localStorage.getItem('comments'));
+// };
+
+// 	render() {
+// 		return (
+// 			<CommentDiv>
+// <CommentsHeader likes={this.props.likes} />
+
+// {this.state.commentList.map((comment, i) => {
+// 	return <Comment key={i} username={comment.username} text={comment.text} />;
+// })}
+
+// <Time>{this.props.timestamp}</Time>
+
+// <Form onSubmit={this.submitContent}>
+// 	<input
+// 		onChange={this.handleChanges}
+// 		onSubmit={this.submitContent}
+// 		name="comment"
+// 		placeholder="add a comment..."
+// 	/>
+// 	<i className="fas fa-ellipsis-h" />
+// </Form>
+// 			</CommentDiv>
+// 		);
+// 	}
+// }
 
 CommentSection.propTypes = {
 	username: PropType.string,
